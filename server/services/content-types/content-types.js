@@ -135,7 +135,7 @@ module.exports = ({ strapi }) => ({
    * @returns  {Promise<object>} - Entries.
    */
   async getEntry({ contentType, id, entriesQuery = {} }) {
-    const { populate = '*', fields = '*' } = entriesQuery
+    const { populate = 'deep', fields = '*' } = entriesQuery
     const contentTypeUid = this.getContentTypeUid({ contentType })
     if (contentTypeUid === undefined) return {}
 
@@ -175,7 +175,7 @@ module.exports = ({ strapi }) => ({
     limit = 500,
     filters = {},
     sort = 'id',
-    populate = '*',
+    populate = 'deep',
     publicationState = 'live',
     locale,
   }) {
